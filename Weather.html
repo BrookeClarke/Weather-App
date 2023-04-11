@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-gg0yR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7v9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+  </head>
+  <body class="body">
+    <h1>Todays Weather</h1>
+    <div class="search">
+      <form id="search-form">
+        <input
+          id="city-input"
+          type="text"
+          placeholder="Enter a place"
+          autocomplete="off"
+          autofocus="on"
+        />
+        <input type="submit" value="Search" />
+        <button id="currentLocationButton">Current</button>
+      </form>
+      <h2>Date</h2>
+      <h3 id="city">Type in your location!</h3>
+      <div class="container">
+        <div class="box">
+          <div class="column">
+            <div class="col-6" id="first">
+              Today it is:<br /> 
+            <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Clear" id="icon" />
+            <span class="units"><h5 id="temperature-number">5</h5></span>
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+            </div>
+            <div class="col-6" id="second">
+              <span id="Precipitation"> Precipitation: 89% </span>  <br />
+              <span id="humidity" placeholder="Humidity:"></span>%<br />
+              <span id="wind" placeholder="Wind:">Km/H</span>
+            </div>
+          </div>
+        </div>
+        <h4>Your Geolocation!</h4>
+        <div class="week">
+          <div class="row">
+            <div class="third">Sun <br />14°C | 11°C</div>
+            <div class="third">Mon <br />13°C | 3°C</div>
+            <div class="third">Tues <br />8°C | 1°C</div>
+            <div class="third">Wed <br />8°C | 4°C</div>
+            <div class="third">Thurs <br />10°C | 8°C</div>
+            <div class="third">Fri <br />13°C | 8°C</div>
+            <div class="third">Sat <br />11°C | 7°C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h6>
+    <a href="https://github.com/BrookeClarke/Weather-App-Project" target="_blank"> Open source code </a> by Brooke Clarke</h6>
+    <p id="temperature-description"></p> 
+    <script src="app.js"></script>
+  </body>    
+</html>     
