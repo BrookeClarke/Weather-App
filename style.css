@@ -65,3 +65,6 @@ img {
   right: 310px;
   bottom: 360px;
 }
+li {
+  list-style: none;
+}
