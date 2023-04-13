@@ -60,3 +60,8 @@ div#second {
     rgb(255, 233, 171) 100.2%
   );
 }
+img {
+  position: relative;
+  right: 310px;
+  top: 25px;
+}
