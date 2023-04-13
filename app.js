@@ -62,6 +62,7 @@ function search(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let descriptionElement = document.querySelector("#description");
   cityElement.innerHTML = cityInput.value;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -69,7 +70,7 @@ function search(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.condition.icon);
+  descriptionElement.innerHTML = ("alt", response.data.weather[0].description);
 }
 
 function handleSearch(city) {
