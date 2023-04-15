@@ -37,25 +37,6 @@ let months = [
 let month = months[now.getMonth()];
 h2.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML;
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
-}
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 function search(response) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city-input");
@@ -63,6 +44,11 @@ function search(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
   let descriptionElement = document.querySelector("#description");
+  let temperatureElement = document.querySelector("#temperature-number")
+
+  celsiusLink = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusLink);
   cityElement.innerHTML = cityInput.value;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -85,8 +71,28 @@ function handleSubmit(event) {
   handleSearch(city);
 }
 
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-number");
+  let temperature = temperatureElement.innerHTML;
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-number");
+  temperatureElement.innerHTML = Math.round(celsiusLink);
+}
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);   
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 function getCurrentLocation(event) {
   event.preventDefault();
