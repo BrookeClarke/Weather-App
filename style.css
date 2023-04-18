@@ -47,11 +47,6 @@ div#second {
   display: flex;
   flex-wrap: wrap;
 }
-.third {
-  padding: 10px;
-  margin: 5px;
-  color: #343a40;
-}
 .body {
   background-image: linear-gradient(
     109.6deg,
@@ -60,11 +55,11 @@ div#second {
     rgb(255, 233, 171) 100.2%
   );
 }
-img {
-  position: relative;
-  right: 310px;
-  bottom: 360px;
-}
 li {
   list-style: none;
+}
+.today-weather-icon {
+  position: relative;
+  right: 310px;
+  bottom: 300px;
 }
