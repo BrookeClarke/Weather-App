@@ -43,6 +43,7 @@ h2.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast")
+
   let forecastHTML = `<div class="row">`;
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   days.forEach(function (day) {
@@ -50,6 +51,7 @@ function displayForecast() {
   <div class="col-2">
     <div class="Forecast-date">${day}</div>
     <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+    <div class="Week-forecast-temperatures">
       <span class="Forecast-temperature-max"> 18° |</span>
       <span class="Forecast-temperature-min"> 12° </span>
     </div>
@@ -57,6 +59,8 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
 function search(response) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city-input");
