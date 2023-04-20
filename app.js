@@ -5,10 +5,12 @@ let hours = now.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
 }
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
+
 let year = now.getFullYear();
 let days = [
   "Sunday",
@@ -19,6 +21,7 @@ let days = [
   "Friday",
   "Saturday"
 ];
+
 let day = days[now.getDay()];
 let months = [
   "Jan",
@@ -34,9 +37,26 @@ let months = [
   "Nov",
   "Dec"
 ];
+
 let month = months[now.getMonth()];
 h2.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast")
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + `
+  <div class="col-2">
+    <div class="Forecast-date">${day}</div>
+    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42" />
+      <span class="Forecast-temperature-max"> 18° |</span>
+      <span class="Forecast-temperature-min"> 12° </span>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 function search(response) {
   let cityElement = document.querySelector("#city");
   let cityInput = document.querySelector("#city-input");
@@ -46,6 +66,7 @@ function search(response) {
   let descriptionElement = document.querySelector("#description");
   let temperatureElement = document.querySelector("#temperature-number")
 
+  
   celsiusLink = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusLink);
@@ -83,7 +104,6 @@ function convertToCelsius(event) {
   let temperatureElement = document.querySelector("#temperature-number");
   temperatureElement.innerHTML = Math.round(celsiusLink);
 }
-let celsiusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
@@ -94,9 +114,12 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
+displayForecast();
+
 function getCurrentLocation(event) {
   event.preventDefault();
 }
+let celsiusTemperature = null
 
 let currentLocationButton = document.querySelector("#currentLocationButton");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+currentLocationButton.addEventListener("click", getCurrentLocation);;

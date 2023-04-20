@@ -63,3 +63,7 @@ li {
   right: 310px;
   bottom: 300px;
 }
+.col-2 {
+  padding: 10px;
+  margin: 10px;
+}
