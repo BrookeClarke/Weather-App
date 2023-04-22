@@ -41,13 +41,12 @@ let months = [
 let month = months[now.getMonth()];
 h2.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
+function displayForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast")
 
   let forecastHTML = `<div class="row">`;
-
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
   days.forEach(function (day) {
     forecastHTML = forecastHTML + `
   <div class="col-2">
@@ -62,6 +61,13 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "cd876a10c23602b6fbd5ba8f87584931";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 
 function search(response) {
   let cityElement = document.querySelector("#city");
@@ -70,8 +76,9 @@ function search(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
   let descriptionElement = document.querySelector("#description");
-  let temperatureElement = document.querySelector("#temperature-number");
+  let temperatureElement = document.querySelector("#temperature-number")
 
+  
   celsiusLink = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusLink);
@@ -83,8 +90,9 @@ function search(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   descriptionElement.innerHTML = ("alt", response.data.weather[0].description);
-}
 
+  getForecast(response.data.coord);
+}
 
 function handleSearch(city) {
   let apiKey = "cd876a10c23602b6fbd5ba8f87584931";
@@ -123,8 +131,7 @@ celsiusLink.addEventListener("click", convertToCelsius);
 function getCurrentLocation(event) {
   event.preventDefault();
 }
-
 let celsiusTemperature = null
 
 let currentLocationButton = document.querySelector("#currentLocationButton");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+currentLocationButton.addEventListener("click", getCurrentLocation);;
