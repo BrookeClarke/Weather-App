@@ -122,13 +122,3 @@ function showPosition(position) {
   let h4 = document.querySelector("h4")
   h4.innerHTML = `Your latitude is ${position.coords.latitude} and your longitude is ${position.coords.longitude}`
 }
-
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentLocation(showPosition);
-}
-  
-let button = document.querySelector("button");
-button.addEventListener("click", getCurrentPosition);
-
-let currentLocationButton = document.querySelector("#currentLocationButton");
-currentLocationButton.addEventListener("click", getCurrentLocation);
