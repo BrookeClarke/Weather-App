@@ -120,6 +120,10 @@ searchForm.addEventListener("submit", handleSubmit);
 
 function getCurrentLocation(event) {
   event.preventDefault();
+  let current = prompt("What is your current location?");
+  if (city > 0)
+    document.querySelector("h3");
+  h3 = $("#city");
 }
 
 let currentLocationButton = document.querySelector("#currentLocationButton");
