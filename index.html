@@ -17,7 +17,7 @@
   <body class="body">
     <h1>Todays Weather</h1>
     <div class="search">
-      <form id="search-form">
+      <form class="searchbutton" id="search-form">
         <input
           id="city-input"
           type="text"
@@ -25,7 +25,7 @@
           autocomplete="off"
           autofocus="on"
         />
-        <input type="submit" value="Search" />
+        <input class="submitbutton" type="submit" value="Search" />
       </form>
       <h2>Date</h2>
       <h3 id="city">Type in your location!</h3>
@@ -44,7 +44,6 @@
             </div>
           </div>
         </div>
-        <h4>Your Geolocation!</h4>
         <img class="today-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Clear" id="icon" />
         <div class="Week" id="forecast"></div>
       </div>
