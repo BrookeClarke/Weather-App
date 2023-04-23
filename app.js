@@ -118,13 +118,17 @@ function handleSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  let current = prompt("What is your current location?");
-  if (city > 0)
-    document.querySelector("h3");
-  h3 = $("#city");
+function showPosition(position) {
+  let h4 = document.querySelector("h4")
+  h4.innerHTML = `Your latitude is ${position.coords.latitude} and your longitude is ${position.coords.longitude}`
 }
 
-let currentLocationButton = document.querySelector("#currentLocationButton");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentLocation(showPosition);
+}
+  
+  let button = document.querySelector("button");
+  button.addEventListener("click",);
+
+  let currentLocationButton = document.querySelector("#currentLocationButton");
+  currentLocationButton.addEventListener("click", getCurrentLocation);
