@@ -89,7 +89,6 @@ function search(response) {
   let descriptionElement = document.querySelector("#description");
   let temperatureElement = document.querySelector("#temperature-number")
 
-  
   celsiusLink = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusLink);
@@ -115,12 +114,6 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   handleSearch(city);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature-number");
-  temperatureElement.innerHTML = Math.round(celsiusLink);
 }
 
 let searchForm = document.querySelector("#search-form");
